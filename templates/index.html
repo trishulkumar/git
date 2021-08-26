@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Song will be Billboard hit or not</title>
+     <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.5/css/mdb.min.css" rel="stylesheet">
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+      <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.5/js/mdb.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+     <style>
+     body {
+            background-image: url('https://png.pngtree.com/thumb_back/fw800/back_our/20190619/ourmid/pngtree-minimalist-music-master-background-image_133616.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            text-align: center;
+            padding: 5px;
+
+            height: 50px
+            width: 50px
+        }
+       
+        h5 {
+             padding: 5px;
+        }
+        #genre {
+            font-size: 18px;
+            width: 100px;
+            height: 23px;
+            top: 23px;
+        }
+        
+        #box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            font-family: cursive;
+            text-align: center;
+            background-color: rgb(168, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 900px;
+            bottom: 9%;
+            height: 850px;
+            right: 30%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 20px;
+        }
+        
+          #sub {
+            width: 250px;
+            height: 50px;
+            text-align: center;
+            border-radius: 20px;
+            font-size: 20px;
+        }
+        
+        #sub:hover {
+            background-color: #20B2AA;
+        }
+        
+        #first {
+            border-radius: 14px;
+            text-align: center;
+            
+        }
+        
+        #second {
+            border-radius: 14px;
+            text-align: center;
+            
+        }
+        
+        #third {
+            border-radius: 14px;
+            text-align: center;
+        }
+        
+        #fourth {
+            border-radius: 14px;
+            text-align: center;
+        }
+        #fifth {
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        #sixth {
+            border-radius: 14px;
+            text-align: center;
+        }
+        #seventh {
+            border-radius: 14px;
+            text-align: center;
+        }
+        #eighth {
+            border-radius: 14px;
+            text-align: center;
+        }
+        #ninth {
+            border-radius: 14px;
+            text-align: center;
+        }
+
+    </style>
+    </head>
+
+<body>
+    
+    <div class="container" style="color:#000000">
+        <form action="{{ url_for('predict')}}" method="post">
+            <h2><b>Billboard Hit Song Predictor</b></h2>
+            <hr>
+            <h5><b>Danceability</h5>
+                <input id="first" name="Danceability" required="required">
+            <h5><b>Energy</h5>
+                <input id="second" name="Energy" required="required">
+            <h5><b>Loudness</h5>
+                <input id="third" name="Loudness" required="required">
+            <h5><b>Speechiness</h5>
+                <input id="fourth" name="Speechiness" required="required">
+            <h5><b>Acousticness</h5>
+                <input id="fifth" name="Acousticness" required="required">      
+            <h5><b>Instrumentalness</h5>
+                <input id="sixth" name="Instrumentalness" required="required">      
+            <h5><b>Tempo</h5>
+                <input id="seventh" name="Tempo" required="required">      
+            <h5><b>Valence</h5>
+                <input id="eighth" name="Valence" required="required">      
+            <h5><b>Liveness</h5>
+                <input id="ninth" name="Liveness" required="required"> 
+              
+             <h5><b>Genre</h5>
+                <select name="Genre" id="genre" required="required">
+                    <option value="1.0">Pop</option>
+                    <option value="2.0">Rock</option>
+                    <option value="3.0">Rock</option>
+                    <option value="4.0">Country</option>
+                    <option value="5.0">Alternative</option>
+                    <option value="6.0">Metal</option>
+                    <option value="7.0">Rock</option>
+                    <option value="8.0">Reggae</option>
+                    <option value="9.0">Classical</option>
+                    <option value="10.0">Edm</option>
+                </select>
+             
+            
+            <br><br><button id="sub" type="submit ">Click to Predict</button>
+            <br>
+
+
+        </form>
+
+        <br><br><h3><b>{{ prediction_text }}</b></h3>
+    </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    
+</body>
+
+</html>
